@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+    }
+
+    .main {
+        width: 90%;
+        margin: auto;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+}
