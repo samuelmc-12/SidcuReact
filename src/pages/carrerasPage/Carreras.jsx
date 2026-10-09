@@ -17,7 +17,7 @@ const Carreras = () => {
                 setCarreras(datos);
             } catch (error) {
                 console.error(error);
-                setError("No se pudieron cargar las carreras");
+                setError("No se pudieron cargar las carreras...");
             } finally {
                 setCargando(false);
             }
