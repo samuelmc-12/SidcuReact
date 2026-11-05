@@ -6,6 +6,7 @@ import Carreras from "../pages/carrerasPage/Carreras";
 import Comparador from "../pages/comparadorPage/Comparador";
 import Test from "../pages/testPage/Test";
 import Error from "../pages/errorPage/Error";
+import Login from "../pages/loginPage/Login";
 
 export const routerApp = [
     {
@@ -39,6 +40,10 @@ export const routerApp = [
             {
                 path: "*",
                 element: <Error />
+            },
+            {
+                path: "login",
+                element: <Login />
             }
         ]
     }

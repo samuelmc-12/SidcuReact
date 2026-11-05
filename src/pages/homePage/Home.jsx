@@ -1,5 +1,5 @@
 import './Home.css';
-import Footer from '../../components/layout/footer/footer';
+
 
 
 const Home = ()=> {
