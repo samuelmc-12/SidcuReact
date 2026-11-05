@@ -7,6 +7,7 @@ import Comparador from "../pages/comparadorPage/Comparador";
 import Test from "../pages/testPage/Test";
 import Error from "../pages/errorPage/Error";
 import Login from "../pages/loginPage/Login";
+import Registro from "../pages/registroPage/Registro";
 
 export const routerApp = [
     {
@@ -44,6 +45,10 @@ export const routerApp = [
             {
                 path: "login",
                 element: <Login />
+            },
+            {
+                path: "registro",
+                element: <Registro />
             }
         ]
     }
