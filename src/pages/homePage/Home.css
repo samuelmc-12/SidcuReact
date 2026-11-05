@@ -1,7 +1,13 @@
 h1 {
     font-size: 48px;
     text-align: center;
+    padding: 20px;
 }
+
+#tituloPrincipal {
+  padding: 50px;
+}
+
 button {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
@@ -34,8 +40,8 @@ input {
     justify-content: center;
 }
 .buscador {
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -182,38 +188,6 @@ input {
 
 .arrow:hover {
   background-color: rgba(255, 255, 255, 0.4);
-}
-.info {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 40px;
-  padding: 60px 80px;
-  color: white;
-  text-align: left;
-  background: transparent;
-}
-
-.info-box {
-  flex: 1;
-  max-width: 300px;
-}
-
-.info-box h2 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.info-box p {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.info-box a {
-  color: white;
-  font-weight: 600;
-  text-decoration: underline;
 }
 
 .divider {
