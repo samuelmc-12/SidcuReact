@@ -1,100 +1,92 @@
+
 import "./Comparador.css";
-import { useEffect, useState } from "react";
-import { obtenerCarreras } from "../../services/carreraService";
+import { useState } from "react";
+
+const carreras = [
+    {
+        id: 1,
+        nombre: "Ingeniería de Sistemas",
+        descripcion: "Desarrollo de software, aplicaciones y sistemas informáticos.",
+        duracion: "5 años"
+    },
+    {
+        id: 2,
+        nombre: "Medicina",
+        descripcion: "Estudio de la salud humana y el diagnóstico de enfermedades.",
+        duracion: "6 años"
+    },
+    {
+        id: 3,
+        nombre: "Psicología",
+        descripcion: "Estudio del comportamiento y los procesos mentales.",
+        duracion: "5 años"
+    },
+    {
+        id: 4,
+        nombre: "Administración de Empresas",
+        descripcion: "Gestión y dirección de organizaciones y negocios.",
+        duracion: "4 años"
+    },
+    {
+        id: 5,
+        nombre: "Diseño Gráfico",
+        descripcion: "Creación de piezas visuales y comunicación gráfica.",
+        duracion: "4 años"
+    },
+    {
+        id: 6,
+        nombre: "Economía",
+        descripcion: "Estudio de los recursos, mercados y actividades económicas.",
+        duracion: "4 años"
+    }
+];
 
 const Comparador = () => {
 
-    const [carreras, setCarreras] = useState([]);
     const [carreraA, setCarreraA] = useState("");
     const [carreraB, setCarreraB] = useState("");
     const [carreraC, setCarreraC] = useState("");
 
-    const [cargando, setCargando] = useState(true);
-    const [error, setError] = useState("");
-
-    useEffect(() => {
-
-        const cargarCarreras = async () => {
-
-            try {
-
-                const datos = await obtenerCarreras();
-
-                setCarreras(datos);
-
-            } catch (error) {
-
-                setError("No se pudieron cargar las carreras");
-
-            } finally {
-
-                setCargando(false);
-
-            }
-
-        };
-
-        cargarCarreras();
-
-    }, []);
-
+    const [mostrarResultado, setMostrarResultado] = useState(false);
 
     const comparar = (e) => {
-
         e.preventDefault();
 
-        console.log("Carrera A:", carreraA);
-        console.log("Carrera B:", carreraB);
-        console.log("Carrera C:", carreraC);
+        if (!carreraA || !carreraB) {
+            alert("Selecciona al menos dos carreras para comparar.");
+            return;
+        }
 
+        if (
+            carreraA === carreraB ||
+            carreraA === carreraC ||
+            (carreraB === carreraC && carreraC !== "")
+        ) {
+            alert("Selecciona carreras diferentes.");
+            return;
+        }
+
+        setMostrarResultado(true);
     };
 
-
     const restablecer = () => {
-
         setCarreraA("");
         setCarreraB("");
         setCarreraC("");
-
+        setMostrarResultado(false);
     };
 
-
-    if (cargando) {
-
-        return (
-            <main className="comparador-main">
-                <p>Cargando carreras...</p>
-            </main>
-        );
-
-    }
-
-
-    if (error) {
-
-        return (
-            <main className="comparador-main">
-                <p>{error}</p>
-            </main>
-        );
-
-    }
-
-
     return (
-
         <main className="comparador-main">
 
             <section className="comparador-intro">
-
                 <h1>Comparador de Carreras</h1>
 
                 <p>
-                    Selecciona hasta tres carreras en los menús desplegables.
+                    Selecciona hasta tres carreras en los menús
+                    desplegables.
                 </p>
-
             </section>
-
 
             <section
                 className="comparador-controls"
@@ -109,114 +101,91 @@ const Comparador = () => {
 
                     <div className="selector-row">
 
-
-                        {/* CARRERA A */}
-
                         <div className="selector-group">
-
                             <label htmlFor="selectA">
                                 Carrera A
                             </label>
 
                             <select
                                 id="selectA"
-                                name="carreraA"
                                 value={carreraA}
-                                onChange={(e) => setCarreraA(e.target.value)}
+                                onChange={(e) => {
+                                    setCarreraA(e.target.value);
+                                    setMostrarResultado(false);
+                                }}
                             >
-
                                 <option value="">
                                     -- Seleccionar carrera --
                                 </option>
 
                                 {carreras.map((carrera) => (
-
                                     <option
                                         key={carrera.id}
                                         value={carrera.id}
                                     >
                                         {carrera.nombre}
                                     </option>
-
                                 ))}
-
                             </select>
-
                         </div>
 
-
-                        {/* CARRERA B */}
-
                         <div className="selector-group">
-
                             <label htmlFor="selectB">
                                 Carrera B
                             </label>
 
                             <select
                                 id="selectB"
-                                name="carreraB"
                                 value={carreraB}
-                                onChange={(e) => setCarreraB(e.target.value)}
+                                onChange={(e) => {
+                                    setCarreraB(e.target.value);
+                                    setMostrarResultado(false);
+                                }}
                             >
-
                                 <option value="">
                                     -- Seleccionar carrera --
                                 </option>
 
                                 {carreras.map((carrera) => (
-
                                     <option
                                         key={carrera.id}
                                         value={carrera.id}
                                     >
                                         {carrera.nombre}
                                     </option>
-
                                 ))}
-
                             </select>
-
                         </div>
 
-
-                        {/* CARRERA C */}
-
                         <div className="selector-group">
-
                             <label htmlFor="selectC">
                                 Carrera C (opcional)
                             </label>
 
                             <select
                                 id="selectC"
-                                name="carreraC"
                                 value={carreraC}
-                                onChange={(e) => setCarreraC(e.target.value)}
+                                onChange={(e) => {
+                                    setCarreraC(e.target.value);
+                                    setMostrarResultado(false);
+                                }}
                             >
-
                                 <option value="">
                                     -- Seleccionar carrera --
                                 </option>
 
                                 {carreras.map((carrera) => (
-
                                     <option
                                         key={carrera.id}
                                         value={carrera.id}
                                     >
                                         {carrera.nombre}
                                     </option>
-
                                 ))}
-
                             </select>
-
                         </div>
 
-
                     </div>
-
 
                     <div className="form-actions">
 
@@ -237,15 +206,11 @@ const Comparador = () => {
 
                     </div>
 
-
                 </form>
 
             </section>
 
-
-            {/* RESULTADO DE LA COMPARACIÓN */}
-
-            {(carreraA || carreraB || carreraC) && (
+            {mostrarResultado && (
 
                 <section className="resultado-comparador">
 
@@ -266,9 +231,7 @@ const Comparador = () => {
                                     key={carrera.id}
                                 >
 
-                                    <h3>
-                                        {carrera.nombre}
-                                    </h3>
+                                    <h3>{carrera.nombre}</h3>
 
                                     <p>
                                         <strong>Descripción:</strong>{" "}
@@ -291,10 +254,7 @@ const Comparador = () => {
             )}
 
         </main>
-
     );
-
 };
 
 export default Comparador;
-

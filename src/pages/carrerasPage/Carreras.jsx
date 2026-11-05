@@ -1,39 +1,39 @@
 import "./Carreras.css";
-import { useEffect, useState } from "react";
-import { obtenerCarreras } from "../../services/carreraService";
+
+const carreras = [
+    {
+        id: 1,
+        nombre: "Ingeniería de Sistemas",
+        descripcion: "Desarrollo de software, aplicaciones y sistemas informáticos.",
+        duracion: "5 años"
+    },
+    {
+        id: 2,
+        nombre: "Medicina",
+        descripcion: "Estudio de la salud humana y el diagnóstico de enfermedades.",
+        duracion: "6 años"
+    },
+    {
+        id: 3,
+        nombre: "Psicología",
+        descripcion: "Estudio del comportamiento y los procesos mentales.",
+        duracion: "5 años"
+    },
+    {
+        id: 4,
+        nombre: "Administración de Empresas",
+        descripcion: "Gestión y dirección de organizaciones y negocios.",
+        duracion: "4 años"
+    },
+    {
+        id: 5,
+        nombre: "Diseño Gráfico",
+        descripcion: "Creación de piezas visuales y comunicación gráfica.",
+        duracion: "4 años"
+    }
+];
 
 const Carreras = () => {
-
-    const [carreras, setCarreras] = useState([]);
-    const [cargando, setCargando] = useState(true);
-    const [error, setError] = useState("");
-
-    useEffect(() => {
-
-        const cargarCarreras = async () => {
-            try {
-                const datos = await obtenerCarreras();
-                console.log("CARRERAS:", datos);
-                setCarreras(datos);
-            } catch (error) {
-                console.error(error);
-                setError("No se pudieron cargar las carreras");
-            } finally {
-                setCargando(false);
-            }
-        };
-
-        cargarCarreras();
-
-    }, []);
-
-    if (cargando) {
-        return <p>Cargando carreras...</p>;
-    }
-
-    if (error) {
-        return <p>{error}</p>;
-    }
 
     return (
 
