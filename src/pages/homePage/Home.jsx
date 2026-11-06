@@ -1,5 +1,6 @@
 import './Home.css';
 import Actualizaciones from './Actualizaciones.jsx';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -20,8 +21,8 @@ const Home = () => {
             </div>
 
             <div className="registro">
-                <button className="iniciarsesion">Iniciar sesión</button>
-                <button className="registrarse">Registrarse</button>
+                <Link to="login"><button className="iniciarsesion">Iniciar sesión</button></Link>
+                <Link to="registro"><button className="registrarse">Registrarse</button></Link>
             </div>
 
             <Actualizaciones />

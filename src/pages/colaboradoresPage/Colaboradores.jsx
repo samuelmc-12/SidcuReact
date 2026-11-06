@@ -1,5 +1,4 @@
 import "./Colaboradores.css"
-import Footer from '../../components/layout/footer/footer';
 
 const Colaboradores = ()=> {
     return (
