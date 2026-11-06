@@ -9,6 +9,9 @@ import Error from "../pages/errorPage/Error";
 import Login from "../pages/loginPage/Login";
 import Registro from "../pages/registroPage/Registro";
 import InformacionCarrera from "../pages/informacionCarrerasPage/InformacionCarreras";
+import TestActitud from "../pages/testPage/TestActitud";
+import TestAptitud from "../pages/testPage/TestAptitud"
+import TestAutoestima from "../pages/testPage/TestAutoestima"
 
 export const routerApp = [
     {
@@ -54,6 +57,18 @@ export const routerApp = [
             {
                 path: "informacion",
                 element: <InformacionCarrera />
+            },
+            {
+                path: "actitud",
+                element: <TestActitud />
+            },
+            {
+                path: "aptitud",
+                element: <TestAptitud />
+            },
+            {
+                path: "autoestima",
+                element: <TestAutoestima />
             }
         ]
     }
