@@ -1,53 +1,86 @@
 import { Link } from "react-router-dom";
 import "./Test.css";
 
+const tests = [
+    {
+        titulo: "Intereses Vocacionales",
+        descripcion:
+            "Descubre qué actividades, campos profesionales y áreas de conocimiento llaman más tu atención.",
+        imagen: "/img/ingsis.jpg",
+        ruta: "/intereses",
+        preguntas: "24 preguntas",
+    },
+    {
+        titulo: "Habilidades y Aptitudes",
+        descripcion:
+            "Identifica tus fortalezas, habilidades y actividades que disfrutas desarrollar.",
+        imagen: "/img/aptitud.jpg",
+        ruta: "/habilidades",
+        preguntas: "12 preguntas",
+    },
+    {
+        titulo: "Personalidad y Estilo de Trabajo",
+        descripcion:
+            "Descubre cómo prefieres trabajar, colaborar y desenvolverte en diferentes ambientes.",
+        imagen: "/img/ia.jpg",
+        ruta: "/personalidad",
+        preguntas: "10 preguntas",
+    },
+    {
+        titulo: "Motivaciones y Expectativas",
+        descripcion:
+            "Identifica qué es lo que más valoras y esperas de tu futuro profesional.",
+        imagen: "/img/educacion.jpg",
+        ruta: "/motivaciones",
+        preguntas: "10 preguntas",
+    },
+    {
+        titulo: "Áreas Académicas",
+        descripcion:
+            "Reconoce las materias y campos de conocimiento que más te interesan.",
+        imagen: "/img/cienciasb.jpg",
+        ruta: "/academico",
+        preguntas: "10 preguntas",
+    },
+];
+
 const Test = () => {
     return (
         <main className="tests-main">
             <section className="tests-intro">
-                <h1>Tests Disponibles</h1>
-                <p>Explora nuestros tests: selecciona el que más te interese.</p>
+                <h1>Descubre tu futuro profesional</h1>
+                <p>
+                    Realiza nuestros tests de orientación vocacional y conoce
+                    las carreras que podrían relacionarse con tus intereses.
+                </p>
             </section>
 
-            <section className="tests-lista" aria-label="Lista de tests">
-                <article className="test-card">
-                    <img src="./img/autoestima.jpg" alt="" className="test-img" />
-                    <h2>Test de Autoestima</h2>
-                    <p className="test-desc">
-                        Reflexiona sobre cómo reconoces tus cualidades y te tratas en distintas situaciones.
-                    </p>
-                    <div className="test-actions">
-                        <Link className="test-btn" to="/autoestima">
-                            Iniciar Test
-                        </Link>
-                    </div>
-                </article>
+            <section className="tests-lista" aria-label="Tests vocacionales">
+                {tests.map((test) => (
+                    <article className="test-card" key={test.ruta}>
+                        <img
+                            src={test.imagen}
+                            alt=""
+                            className="test-img"
+                        />
 
-                <article className="test-card">
-                    <img src="./img/actitud.jpg" alt="" className="test-img" />
-                    <h2>Test de Actitud</h2>
-                    <p className="test-desc">
-                        Reflexiona sobre cómo enfrentas retos, colaboras y te organizas en diferentes actividades.
-                    </p>
-                    <div className="test-actions">
-                        <Link className="test-btn" to="/actitud">
-                            Iniciar Test
-                        </Link>
-                    </div>
-                </article>
+                        <h2>{test.titulo}</h2>
 
-                <article className="test-card">
-                    <img src="./img/aptitud.jpg" alt="" className="test-img" />
-                    <h2>Test de Aptitud</h2>
-                    <p className="test-desc">
-                        Resuelve ejercicios breves de razonamiento verbal, numérico y lógico.
-                    </p>
-                    <div className="test-actions">
-                        <Link className="test-btn" to="/aptitud">
-                            Iniciar Test
-                        </Link>
-                    </div>
-                </article>
+                        <p className="test-desc">
+                            {test.descripcion}
+                        </p>
+
+                        <p className="test-cantidad">
+                            {test.preguntas}
+                        </p>
+
+                        <div className="test-actions">
+                            <Link className="test-btn" to={test.ruta}>
+                                Iniciar test
+                            </Link>
+                        </div>
+                    </article>
+                ))}
             </section>
         </main>
     );
