@@ -24,6 +24,7 @@ const Login = () => {
             return;
         }
 
+        localStorage.setItem("usuario", administradorValido.username);
         navigate("/home");
     };
 
