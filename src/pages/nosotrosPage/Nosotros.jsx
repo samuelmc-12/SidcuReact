@@ -1,4 +1,3 @@
-
 import "./Nosotros.css";
 
 const Nosotros = () => {

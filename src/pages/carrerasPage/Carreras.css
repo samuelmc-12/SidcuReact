@@ -27,7 +27,7 @@
     justify-content: center;
     align-items: center;
     gap: 0.7em;
-    margin: 2em auto 1em auto;
+    margin-top: 35px;
 }
 
 .carrera-busqueda-input {
@@ -36,19 +36,6 @@
     border: 1px solid #ccccda;
     width: 270px;
     font-size: 1em;
-}
-
-.carrera-busqueda-btn {
-    background-color: #13002e;
-    color: white;
-    border: 2px solid white;
-    padding: 0.6em 1.3em;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 1.1em;
-}
-.carrera-busqueda-btn:hover {
-    background-color: #2e0057;
 }
 
 .areas-carreras {

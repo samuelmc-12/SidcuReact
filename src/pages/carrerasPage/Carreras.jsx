@@ -1,42 +1,68 @@
+
 import "./Carreras.css";
+import { useState } from "react";
 
 const carreras = [
     {
         id: 1,
+        codigo: "sis",
         nombre: "Ingeniería de Sistemas",
         descripcion: "Desarrollo de software, aplicaciones y sistemas informáticos.",
         duracion: "5 años"
     },
     {
         id: 2,
+        codigo: "med",
         nombre: "Medicina",
         descripcion: "Estudio de la salud humana y el diagnóstico de enfermedades.",
         duracion: "6 años"
     },
     {
         id: 3,
+        codigo: "psic",
         nombre: "Psicología",
         descripcion: "Estudio del comportamiento y los procesos mentales.",
         duracion: "5 años"
     },
     {
         id: 4,
-        nombre: "Administración de Empresas",
-        descripcion: "Gestión y dirección de organizaciones y negocios.",
-        duracion: "4 años"
+        codigo: "eco",
+        nombre: "Economía",
+        descripcion: "Análisis financiero y económico.",
+        duracion: "5 años"
     },
     {
         id: 5,
+        codigo: "dis",
         nombre: "Diseño Gráfico",
         descripcion: "Creación de piezas visuales y comunicación gráfica.",
         duracion: "4 años"
+    },
+    {
+        id: 6,
+        codigo: "civ",
+        nombre: "Ingeniería Civil",
+        descripcion: "Diseño, construcción y gestión de infraestructuras.",
+        duracion: "5 años"
+    },
+    {
+        id: 7,
+        codigo: "edu",
+        nombre: "Licenciatura en Educación",
+        descripcion: "Formación pedagógica para enseñar.",
+        duracion: "5 años"
     }
 ];
 
 const Carreras = () => {
 
-    return (
+    const [busqueda, setBusqueda] = useState("");
 
+    const carrerasFiltradas = carreras.filter((carrera) =>
+        carrera.nombre.toLowerCase().includes(busqueda.toLowerCase())
+    );
+
+    return (
         <main>
 
             <section className="carreras-intro">
@@ -49,80 +75,51 @@ const Carreras = () => {
                 </p>
             </section>
 
-
             <section className="busqueda-carrera">
-
                 <input
                     type="text"
                     placeholder="Buscar una carrera..."
                     className="carrera-busqueda-input"
+                    value={busqueda}
+                    onChange={(e) => setBusqueda(e.target.value)}
                 />
-
-                <button className="carrera-busqueda-btn">
-                    Buscar
-                </button>
-
             </section>
-
-
-            <section className="areas-carreras">
-
-                <h2>Áreas de Estudio</h2>
-
-                <div className="area-tabs">
-
-                    <button>Ingeniería</button>
-                    <button>Salud</button>
-                    <button>Ciencias Sociales</button>
-                    <button>Arte y Diseño</button>
-                    <button>Ciencias Básicas</button>
-                    <button>Economía y Negocios</button>
-                    <button>Educación</button>
-
-                </div>
-
-            </section>
-
 
             <section className="carreras-lista">
 
-                {carreras.map((carrera) => (
+                {carrerasFiltradas.length > 0 ? (
 
-                    <div
-                        className="carrera-card"
-                        key={carrera.id}
-                    >
+                    carrerasFiltradas.map((carrera) => (
+                        <div className="carrera-card" key={carrera.id}>
 
-                        <h3>
-                            {carrera.nombre}
-                        </h3>
+                            <h3>{carrera.nombre}</h3>
 
-                        <p>
-                            {carrera.descripcion}
-                            <br />
+                            <p>
+                                {carrera.descripcion}
+                                <br />
+                                <span>Duración: {carrera.duracion}</span>
+                            </p>
 
-                            <span>
-                                Duración: {carrera.duracion}
-                            </span>
-                        </p>
+                            <a
+                                href={`/informacion?carrera=${carrera.codigo}`}
+                                className="ver-detalle"
+                            >
+                                Ver detalle
+                            </a>
 
-                        <a
-                            href="#"
-                            className="ver-detalle"
-                        >
-                            Ver detalle
-                        </a>
+                        </div>
+                    ))
 
-                    </div>
+                ) : (
 
-                ))}
+                    <p>No se encontraron carreras.</p>
+
+                )}
 
             </section>
 
         </main>
-
     );
 };
 
 export default Carreras;
-

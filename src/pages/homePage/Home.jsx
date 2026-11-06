@@ -1,5 +1,5 @@
 import './Home.css';
-import Actualizaciones from './Actualizaciones';
+import Actualizaciones from './Actualizaciones.jsx';
 
 const Home = () => {
     return (

@@ -8,6 +8,7 @@ import Test from "../pages/testPage/Test";
 import Error from "../pages/errorPage/Error";
 import Login from "../pages/loginPage/Login";
 import Registro from "../pages/registroPage/Registro";
+import InformacionCarrera from "../pages/informacionCarrerasPage/InformacionCarreras";
 
 export const routerApp = [
     {
@@ -49,6 +50,10 @@ export const routerApp = [
             {
                 path: "registro",
                 element: <Registro />
+            },
+            {
+                path: "informacion",
+                element: <InformacionCarrera />
             }
         ]
     }
