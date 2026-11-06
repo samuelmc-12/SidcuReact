@@ -1,45 +1,12 @@
 
 import "./Comparador.css";
 import { useState } from "react";
+import { carreras as datosCarreras } from "../informacionCarrerasPage/CarrerasData";
 
-const carreras = [
-    {
-        id: 1,
-        nombre: "Ingeniería de Sistemas",
-        descripcion: "Desarrollo de software, aplicaciones y sistemas informáticos.",
-        duracion: "5 años"
-    },
-    {
-        id: 2,
-        nombre: "Medicina",
-        descripcion: "Estudio de la salud humana y el diagnóstico de enfermedades.",
-        duracion: "6 años"
-    },
-    {
-        id: 3,
-        nombre: "Psicología",
-        descripcion: "Estudio del comportamiento y los procesos mentales.",
-        duracion: "5 años"
-    },
-    {
-        id: 4,
-        nombre: "Administración de Empresas",
-        descripcion: "Gestión y dirección de organizaciones y negocios.",
-        duracion: "4 años"
-    },
-    {
-        id: 5,
-        nombre: "Diseño Gráfico",
-        descripcion: "Creación de piezas visuales y comunicación gráfica.",
-        duracion: "4 años"
-    },
-    {
-        id: 6,
-        nombre: "Economía",
-        descripcion: "Estudio de los recursos, mercados y actividades económicas.",
-        duracion: "4 años"
-    }
-];
+const carreras = Object.entries(datosCarreras).map(([codigo, datos]) => ({
+    codigo,
+    ...datos
+}));
 
 const Comparador = () => {
 
@@ -76,6 +43,10 @@ const Comparador = () => {
         setMostrarResultado(false);
     };
 
+    const carrerasSeleccionadas = carreras.filter((carrera) =>
+        [carreraA, carreraB, carreraC].includes(carrera.codigo)
+    );
+
     return (
         <main className="comparador-main">
 
@@ -83,28 +54,23 @@ const Comparador = () => {
                 <h1>Comparador de Carreras</h1>
 
                 <p>
-                    Selecciona hasta tres carreras en los menús
-                    desplegables.
+                    Compara hasta tres carreras universitarias y descubre
+                    sus diferencias en duración, costos, salarios,
+                    ocupabilidad y campo laboral.
                 </p>
             </section>
 
-            <section
-                className="comparador-controls"
-                aria-label="Seleccionar carreras para comparar"
-            >
+            <section className="comparador-controls">
 
                 <form
                     className="comparador-form"
                     onSubmit={comparar}
-                    noValidate
                 >
 
                     <div className="selector-row">
 
                         <div className="selector-group">
-                            <label htmlFor="selectA">
-                                Carrera A
-                            </label>
+                            <label htmlFor="selectA">Carrera A</label>
 
                             <select
                                 id="selectA"
@@ -114,14 +80,12 @@ const Comparador = () => {
                                     setMostrarResultado(false);
                                 }}
                             >
-                                <option value="">
-                                    -- Seleccionar carrera --
-                                </option>
+                                <option value="">Seleccionar carrera</option>
 
                                 {carreras.map((carrera) => (
                                     <option
-                                        key={carrera.id}
-                                        value={carrera.id}
+                                        key={carrera.codigo}
+                                        value={carrera.codigo}
                                     >
                                         {carrera.nombre}
                                     </option>
@@ -130,9 +94,7 @@ const Comparador = () => {
                         </div>
 
                         <div className="selector-group">
-                            <label htmlFor="selectB">
-                                Carrera B
-                            </label>
+                            <label htmlFor="selectB">Carrera B</label>
 
                             <select
                                 id="selectB"
@@ -142,14 +104,12 @@ const Comparador = () => {
                                     setMostrarResultado(false);
                                 }}
                             >
-                                <option value="">
-                                    -- Seleccionar carrera --
-                                </option>
+                                <option value="">Seleccionar carrera</option>
 
                                 {carreras.map((carrera) => (
                                     <option
-                                        key={carrera.id}
-                                        value={carrera.id}
+                                        key={carrera.codigo}
+                                        value={carrera.codigo}
                                     >
                                         {carrera.nombre}
                                     </option>
@@ -170,14 +130,12 @@ const Comparador = () => {
                                     setMostrarResultado(false);
                                 }}
                             >
-                                <option value="">
-                                    -- Seleccionar carrera --
-                                </option>
+                                <option value="">Seleccionar carrera</option>
 
                                 {carreras.map((carrera) => (
                                     <option
-                                        key={carrera.id}
-                                        value={carrera.id}
+                                        key={carrera.codigo}
+                                        value={carrera.codigo}
                                     >
                                         {carrera.nombre}
                                     </option>
@@ -189,10 +147,7 @@ const Comparador = () => {
 
                     <div className="form-actions">
 
-                        <button
-                            type="submit"
-                            className="comparar-button"
-                        >
+                        <button type="submit" className="comparar-button">
                             Comparar
                         </button>
 
@@ -214,38 +169,72 @@ const Comparador = () => {
 
                 <section className="resultado-comparador">
 
-                    <h2>Carreras seleccionadas</h2>
+                    <h2>Resultados de la comparación</h2>
 
                     <div className="resultado-lista">
 
-                        {carreras
-                            .filter((carrera) =>
-                                carrera.id == carreraA ||
-                                carrera.id == carreraB ||
-                                carrera.id == carreraC
-                            )
-                            .map((carrera) => (
+                        {carrerasSeleccionadas.map((carrera) => (
 
-                                <div
-                                    className="carrera-comparada"
-                                    key={carrera.id}
-                                >
+                            <article
+                                className="carrera-comparada"
+                                key={carrera.codigo}
+                            >
 
-                                    <h3>{carrera.nombre}</h3>
+                                <h3>{carrera.nombre}</h3>
 
-                                    <p>
-                                        <strong>Descripción:</strong>{" "}
-                                        {carrera.descripcion}
-                                    </p>
+                                <p>
+                                    <strong>Categoría:</strong> {carrera.categoria}
+                                </p>
 
-                                    <p>
-                                        <strong>Duración:</strong>{" "}
-                                        {carrera.duracion}
-                                    </p>
+                                <p>
+                                    <strong>Duración:</strong> {carrera.duracion}
+                                </p>
 
+                                <p>
+                                    <strong>Costo aproximado:</strong> {carrera.costo}
+                                </p>
+
+                                <p>
+                                    <strong>Salario promedio:</strong> {carrera.salario}
+                                </p>
+
+                                <p>
+                                    <strong>Ocupabilidad:</strong> {carrera.ocupabilidad}
+                                </p>
+
+                                <div className="comparador-detalle">
+                                    <h4>Descripción</h4>
+                                    <p>{carrera.descripcion}</p>
                                 </div>
 
-                            ))}
+                                <div className="comparador-detalle">
+                                    <h4>Habilidades</h4>
+
+                                    <ul>
+                                        {carrera.habilidades.map((habilidad, index) => (
+                                            <li key={index}>{habilidad}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="comparador-detalle">
+                                    <h4>Campo laboral</h4>
+                                    <p>{carrera.campo}</p>
+                                </div>
+
+                                <div className="comparador-detalle">
+                                    <h4>Universidades</h4>
+
+                                    <ul>
+                                        {carrera.universidades.map((universidad, index) => (
+                                            <li key={index}>{universidad}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                            </article>
+
+                        ))}
 
                     </div>
 
