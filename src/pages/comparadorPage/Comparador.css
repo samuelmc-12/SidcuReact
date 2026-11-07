@@ -89,44 +89,53 @@
 
 /* BOTONES */
 
+/* BOTONES */
+
 .form-actions {
     display: flex;
-    gap: 1rem;
+    gap: 18px;
     justify-content: flex-end;
     margin-top: 1rem;
 }
 
 .comparar-button,
 .reset-button {
-    padding: 10px 25px;
-    border-radius: 10px;
-    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
     font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 25px;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(19, 0, 46, 0.2);
 }
 
+/* BOTÓN COMPARAR */
+
 .comparar-button {
-    background-color: #13002e;
-    color: #ffffff;
-    border: 2px solid #13002e;
+    background-color: #7D35C7;
+    color: white;
 }
 
 .comparar-button:hover {
-    background-color: #2e0057;
-    transform: translateY(-2px);
+    background-color: #bd80ff;
+    color: #13002e;
+    transform: translateY(-3px);
 }
 
+/* BOTÓN LIMPIAR */
+
 .reset-button {
-    background-color: #ffffff;
-    color: #13002e;
-    border: 2px solid #13002e;
+    background-color: white;
+    color: #7D35C7;
 }
 
 .reset-button:hover {
-    background-color: #f0e6fa;
-    transform: translateY(-2px);
-}
+    background-color: #bd80ff;
+    color: #13002e;
+    transform: translateY(-3px);
+}   
 
 /* RESULTADOS */
 

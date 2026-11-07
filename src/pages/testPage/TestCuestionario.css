@@ -95,20 +95,24 @@
 }
 
 .test-btn {
-  display: inline-block;
-  padding: 0.55em 1.2em;
-  border: 2px solid #13002e;
-  border-radius: 8px;
-  background-color: #13002e;
-  color: #fff;
-  font: inherit;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #7D35C7;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(19, 0, 46, 0.2);
 }
 
 .test-btn:hover {
-  background-color: #532e7a;
+    background-color: #bd80ff;
+    color: #13002e;
+    transform: translateY(-3px);
 }
 
 @media (max-width: 600px) {
