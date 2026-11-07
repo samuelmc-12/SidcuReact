@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import Actualizaciones from "./Actualizaciones.jsx";
@@ -11,24 +12,56 @@ const Home = () => {
         setUsuario(null);
     };
 
+
+    const navigate = useNavigate();
+        const [busqueda, setBusqueda] = useState("");
+
+        const handleBuscar = () => {
+            if (busqueda.trim() === "") {
+                return;
+            }
+
+            navigate(`/carreras?buscar=${encodeURIComponent(busqueda.trim())}`);
+        };
+
+
     return (
         <main>
             <h1 id="tituloPrincipal">
-                {usuario
-                    ? `¡Bienvenido, ${usuario}! Encuentra la mejor opción para estudiar`
-                    : "Encuentra la mejor opción para estudiar"}
+                {usuario ? (
+                    <>
+                        ¡Bienvenido, {usuario}! <br />
+                        Encuentra la mejor opción para <span>estudiar</span>
+                    </>
+                ) : (
+                    <>
+                        Encuentra la mejor opción para <span>estudiar</span>
+                    </>
+                )}
             </h1>
+            <p id="subtituloPrincipal">
+                Explora diferentes carreras universitarias, conoce las
+                universidades y descubre las oportunidades que te acercan
+                a tu futuro profesional.
+            </p>
 
-            <div className="botones">
-                <button>PreGrado</button>
-                <button>PostGrado</button>
-                <button>Técnico</button>
-            </div>
-
+            
             <div className="buscador">
-                <input type="text" placeholder="Buscar una carrera" />
-                <button className="buscar">Buscar</button>
+                <input
+                    type="text"
+                    placeholder="¿Qué carrera te gustaría estudiar?"
+                    value={busqueda}
+                    onChange={(e) => setBusqueda(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") handleBuscar();
+                    }}
+                />
+
+                <button className="buscar" onClick={handleBuscar}>
+                    Buscar
+                </button>
             </div>
+
 
             <div className="registro">
                 {usuario ? (

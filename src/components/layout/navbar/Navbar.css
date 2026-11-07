@@ -1,18 +1,17 @@
-
 header {
     background: white;
     width: 100%;
     position: relative;
     z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 40px;
-    height: 110px;
+    padding: 5px 45px;
+    height: 95px;
     box-sizing: border-box;
 }
 
@@ -28,20 +27,18 @@ header {
 .logo a {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 3px;
 }
 
 .logo img {
-    height: 80px;
+    height: 65px;
     width: auto;
     object-fit: contain;
     display: block;
 }
 
-/* Segundo logo */
-
 #logo2 {
-    height: 80px;
+    height: 65px;
 }
 
 /* ENLACES */
@@ -51,7 +48,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 12px;
+    gap: 25px;
     margin: 0;
     padding: 0;
 }
@@ -63,21 +60,38 @@ header {
 }
 
 .nav-links li:not(:last-child)::after {
-    content: "|";
-    color: #777;
-    margin-left: 12px;
+    display: none;
 }
 
 .nav-links a {
+    position: relative;
     text-decoration: none;
-    color: black;
-    font-size: 15px;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    color: #000000;
+    font-size: 14px;
+    padding: 8px 0;
+    transition: color 0.5s ease;
+}
+
+/* EFECTO HOVER */
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #a56af7;
+    border-radius: 10px;
+    transition: width 0.5s ease;
 }
 
 .nav-links a:hover {
     color: #a56af7;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 /* TABLET Y CELULAR */
@@ -86,14 +100,22 @@ header {
     .navbar {
         height: auto;
         flex-direction: column;
-        padding: 10px;
-        gap: 10px;
+        padding: 12px;
+        gap: 15px;
+    }
+
+    .logo img {
+        height: 55px;
+    }
+
+    #logo2 {
+        height: 55px;
     }
 
     .nav-links {
         justify-content: center;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 18px;
     }
 
     .nav-links a {

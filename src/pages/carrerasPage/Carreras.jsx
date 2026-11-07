@@ -1,6 +1,7 @@
 
 import "./Carreras.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const carreras = [
     {
@@ -56,7 +57,15 @@ const carreras = [
 
 const Carreras = () => {
 
-    const [busqueda, setBusqueda] = useState("");
+    const [searchParams] = useSearchParams();
+
+    const [busqueda, setBusqueda] = useState(
+        searchParams.get("buscar") || ""
+    );
+
+    useEffect(() => {
+        setBusqueda(searchParams.get("buscar") || "");
+    }, [searchParams]);
 
     const carrerasFiltradas = carreras.filter((carrera) =>
         carrera.nombre.toLowerCase().includes(busqueda.toLowerCase())

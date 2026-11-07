@@ -56,16 +56,14 @@ const Actualizaciones = () => {
     return (
         <section className="actualizaciones">
             <div className="actualizacionestitulo">
-                <h2>Actualizaciones</h2>
-
-                <button className="vertodasboton">
-                    Todas las Actualizaciones ➜
-                </button>
+                <h2>
+                    Novedades de <span>SIDCU</span>
+                </h2>
             </div>
 
             <div className="actualizacionesarrow">
                 <button className="arrow arrow-left" onClick={anterior}>
-                    ‹
+                    «
                 </button>
 
                 <div className="actualizacionescontenedor">
@@ -81,7 +79,7 @@ const Actualizaciones = () => {
                 </div>
 
                 <button className="arrow arrow-right" onClick={siguiente}>
-                    ›
+                    »
                 </button>
             </div>
         </section>
