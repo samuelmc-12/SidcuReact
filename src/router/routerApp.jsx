@@ -1,3 +1,4 @@
+import { Navigate } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/homePage/Home";
 import Nosotros from "../pages/nosotrosPage/Nosotros";
@@ -14,12 +15,17 @@ import TestHabilidades from "../pages/testPage/TestHabilidades";
 import TestPersonalidad from "../pages/testPage/TestPersonalidad";
 import TestMotivaciones from "../pages/testPage/TestMotivaciones";
 import TestAcademico from "../pages/testPage/TestAcademico.jsx";
+import Analitica from "../pages/analiticaPage/Analitica.jsx";
 
 export const routerApp = [
     {
         path: "/",
         element: <App />,
         children: [
+            {
+                index: true,
+                element: <Navigate to="/home" replace />
+            },
             {
                 path: "home",
                 element: <Home />
@@ -39,6 +45,10 @@ export const routerApp = [
             {
                 path: "comparador",
                 element: <Comparador />
+            },
+            {
+                path: "analitica",
+                element: <Analitica />
             },
             {
                 path: "test",
