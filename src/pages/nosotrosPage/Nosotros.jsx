@@ -19,9 +19,9 @@ const Nosotros = () => {
                             descubrir su vocación mediante una experiencia
                             interactiva, moderna y personalizada.
                         </p>
-                    </div>
+                    </div>  
 
-                    <img src="img/biblioteca.jpg" alt="Biblioteca" />
+                    <img src="./img/sidculogo.jpg" alt="Biblioteca" />
 
                 </div>
 

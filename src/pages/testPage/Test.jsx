@@ -6,7 +6,7 @@ const tests = [
         titulo: "Intereses Vocacionales",
         descripcion:
             "Descubre qué actividades, campos profesionales y áreas de conocimiento llaman más tu atención.",
-        imagen: "/img/ingsis.jpg",
+        imagen: "/img/vocacional.jpg",
         ruta: "/intereses",
         preguntas: "24 preguntas",
     },

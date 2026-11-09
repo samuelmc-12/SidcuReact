@@ -10,7 +10,7 @@ const carreras = [
         nombre: "Ingeniería de Sistemas",
         descripcion: "Desarrollo de software, aplicaciones y sistemas informáticos.",
         duracion: "5 años",
-        imagen: "/img/carreras/sistemas.png"
+        imagen: "./img/ingsis.jpg"
     },
     {
         id: 2,
@@ -18,7 +18,7 @@ const carreras = [
         nombre: "Medicina",
         descripcion: "Estudio de la salud humana y el diagnóstico de enfermedades.",
         duracion: "6 años",
-        imagen: "/img/carreras/medicina.png"
+        imagen: "./img/salud.jpg"
     },
     {
         id: 3,
@@ -26,7 +26,7 @@ const carreras = [
         nombre: "Psicología",
         descripcion: "Estudio del comportamiento y los procesos mentales.",
         duracion: "5 años",
-        imagen: "/img/carreras/psicologia.png"
+        imagen: "./img/psicologia.jpg"
     },
     {
         id: 4,
@@ -34,7 +34,7 @@ const carreras = [
         nombre: "Economía",
         descripcion: "Análisis financiero y económico.",
         duracion: "5 años",
-        imagen: "/img/carreras/economia.png"
+        imagen: "./img/economia.jpg"
     },
     {
         id: 5,
@@ -42,7 +42,7 @@ const carreras = [
         nombre: "Diseño Gráfico",
         descripcion: "Creación de piezas visuales y comunicación gráfica.",
         duracion: "4 años",
-        imagen: "/img/carreras/diseno.png"
+        imagen: "./img/arte.jpg"
     },
     {
         id: 6,
@@ -50,7 +50,7 @@ const carreras = [
         nombre: "Ingeniería Civil",
         descripcion: "Diseño, construcción y gestión de infraestructuras.",
         duracion: "5 años",
-        imagen: "/img/carreras/civil.png"
+        imagen: "./img/civil.jpg"
     },
     {
         id: 7,
@@ -58,7 +58,7 @@ const carreras = [
         nombre: "Licenciatura en Educación",
         descripcion: "Formación pedagógica para enseñar.",
         duracion: "5 años",
-        imagen: "/img/carreras/educacion.png"
+        imagen: "./img/educacion.jpg"
     }
 ];
 

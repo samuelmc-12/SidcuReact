@@ -1,6 +1,6 @@
-
 import "./InformacionCarreras.css";
 import { carreras } from "./carrerasData";
+import { Link } from "react-router-dom";
 
 const InformacionCarrera = () => {
 
@@ -20,6 +20,9 @@ const InformacionCarrera = () => {
 
     return (
         <main className="info-main">
+            <Link to="/carreras" className="volver-carreras">
+                Volver a carreras
+            </Link>
 
             <div className="info-container">
 

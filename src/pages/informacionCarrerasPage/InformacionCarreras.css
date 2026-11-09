@@ -199,3 +199,24 @@
         padding: 0.45rem 0.8rem;
     }
 }
+
+.volver-carreras {
+    display: inline-block;
+    background-color: #7D35C7;
+    color: white;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(19, 0, 46, 0.2);
+    transition: all 0.3s ease;
+}
+
+.volver-carreras:hover {
+    background-color: #bd80ff;
+    color: #13002e;
+    transform: translateY(-3px);
+}
