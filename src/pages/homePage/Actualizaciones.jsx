@@ -4,12 +4,12 @@ import "./Actualizaciones.css";
 
 const actualizacionesData = [
     {
-        img: "/img/biblioteca.jpg",
-        alt: "Nueva Simulación",
-        texto: "Agregamos nuevas simulaciones"
+        img: "/img/unilogo.jpg",
+        alt: "Nuevos colaboradores",
+        texto: "Tenemos nuevos colaboradores"
     },
     {
-        img: "/img/pelaos.jpg",
+        img: "/img/balanza.jpg",
         alt: "Comparador",
         texto: "Implementación de Comparador"
     },
