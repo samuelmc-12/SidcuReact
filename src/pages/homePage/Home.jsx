@@ -103,20 +103,41 @@ const Home = () => {
             <Actualizaciones />
 
             <section className="suscripcion">
-                <h3>Sé el primero en enterarte</h3>
+                <span className="suscripcion-etiqueta">
+                    DESCUBRE TU POTENCIAL
+                </span>
 
+                <h3>
+                    Tu futuro profesional comienza con una
+                    <span> decisión.</span>
+                </h3>
+                <h4>
+                    ¿Ya sabes qué camino quieres seguir?
+                </h4>
                 <p>
-                    ¿Deseas que te informemos por correo sobre oportunidades
-                    de carreras o universidades que guardaste en la búsqueda?
+                    Descubre tus intereses, reconoce tus habilidades y
+                    explora las carreras que podrían conectar con lo que
+                    te apasiona. En SIDCU te acompañamos a dar el siguiente
+                    paso hacia tu futuro.
                 </p>
-
-                <div className="suscripcion-form">
-                    <input
-                        type="email"
-                        placeholder="Correo Electrónico"
-                    />
-                    <button className="suscribirse">Suscribirse</button>
+                <div className="suscripcion-beneficios">
+                    <span>Conoce tus intereses</span>
+                    <span>Explora tus habilidades</span>
+                    <span>Encuentra tu camino</span>
                 </div>
+                <div className="cta-vocacional-botones">
+                    <Link to="/test" className="cta-vocacional-principal">
+                        Hacer el test vocacional
+                    </Link>
+
+                    <Link to="/carreras" className="cta-vocacional-secundario">
+                        Explorar carreras
+                    </Link>
+                </div>
+
+                <small className="suscripcion-frase">
+                    Tu futuro tiene muchas posibilidades. ¡Comienza a descubrirlas!
+                </small>
             </section>
         </main>
     );

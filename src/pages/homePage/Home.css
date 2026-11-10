@@ -160,7 +160,6 @@ button {
     text-align: center;
     color: white;
     padding: 50px 20px 70px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .suscripcion h3 {
@@ -185,37 +184,6 @@ button {
     flex-wrap: wrap;
 }
 
-.suscripcion-form input {
-    padding: 12px 20px;
-    border-radius: 25px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    width: 300px;
-    max-width: 100%;
-    box-sizing: border-box;
-    color: #000;
-    text-align: center;
-}
-
-
-.suscribirse {
-    background-color: #7D35C7;
-    color: white;
-    border: 2px solid #bd80ff;
-    padding: 10px 25px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.suscribirse:hover {
-    background-color: #bd80ff;
-    color: #13002e;
-    transform: translateY(-2px);
-}
 
 button:active,
 .iniciarsesion:active,
@@ -280,5 +248,207 @@ button:active,
     .suscribirse {
         width: 100%;
         max-width: 200px;
+    }
+}
+
+.cta-vocacional-botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 24px;
+}
+
+.cta-vocacional-botones a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 230px;
+    min-height: 48px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.cta-vocacional-principal {
+    background-color: white;
+    color: #7D35C7;
+    border: 2px solid white;
+}
+
+.cta-vocacional-secundario {
+    background-color: #7D35C7;
+    color: white;
+    border: 2px solid #7D35C7;
+}
+
+.cta-vocacional-principal:hover {
+    background-color: #dfbaff;
+    color: #13002e;
+    border-color: #dfbaff;
+    transform: translateY(-2px);
+}
+
+.cta-vocacional-secundario:hover {
+    background-color: #bd80ff;
+    color: #13002e;
+    border-color: #bd80ff;
+    transform: translateY(-2px);
+}
+
+.cta-vocacional-botones a:active {
+    transform: scale(0.97);
+}
+
+@media (max-width: 480px) {
+    .cta-vocacional-botones {
+        flex-direction: column;
+    }
+
+    .cta-vocacional-botones a {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+.suscripcion {
+    max-width: 950px;
+    margin: 0px auto 0px;
+    padding: 55px 35px;
+    text-align: center;
+    color: white;
+}
+
+.suscripcion-etiqueta {
+    display: inline-block;
+    padding: 8px 18px;
+    margin-bottom: 22px;
+
+    color: #dfbaff;
+    background: rgba(189, 128, 255, 0.12);
+
+    border: 1px solid rgba(189, 128, 255, 0.3);
+    border-radius: 30px;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.suscripcion h3 {
+    max-width: 750px;
+    margin: 0 auto 18px;
+
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.35;
+    color: #ffffff;
+}
+
+.suscripcion h3 span {
+    color: #bd80ff;
+}
+
+.suscripcion h4 {
+    margin: 0 auto 18px;
+
+    font-size: 19px;
+    font-weight: 600;
+    color: #dfbaff;
+}
+
+.suscripcion p {
+    max-width: 700px;
+    margin: 0 auto 28px;
+
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.9;
+    color: #E4D9F1;
+}
+
+
+.suscripcion-beneficios {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-bottom: 30px;
+}
+
+.suscripcion-beneficios span {
+    padding: 9px 15px;
+
+    color: #ead9ff;
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(189, 128, 255, 0.2);
+    border-radius: 25px;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+.suscripcion-frase {
+    display: block;
+    margin-top: 25px;
+
+    color: #cbb6e2;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+
+    .suscripcion {
+        margin: 45px 18px;
+        padding: 40px 20px;
+    }
+
+    .suscripcion h3 {
+        font-size: 26px;
+    }
+
+    .suscripcion h4 {
+        font-size: 17px;
+    }
+
+    .suscripcion p {
+        font-size: 14px;
+    }
+
+    .suscripcion-beneficios {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .suscripcion h3 {
+        font-size: 23px;
+    }
+
+    .suscripcion-etiqueta {
+        font-size: 10px;
+    }
+
+    .suscripcion-beneficios {
+        flex-direction: column;
+    }
+
+    .suscripcion-beneficios span {
+        width: fit-content;
     }
 }
