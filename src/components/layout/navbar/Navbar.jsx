@@ -10,6 +10,7 @@ const Navbar = ()=> {
                 </h1>
                 <ul className="nav-links">
                     <li><Link to="/nosotros">NOSOTROS</Link></li>
+                    <li><Link to="/analitica">ANALITICA</Link></li>
                     <li><Link to="/colaboradores">COLABORADORES</Link></li>
                     <li><Link to="/carreras">CARRERAS</Link></li>
                     <li><Link to="/comparador">COMPARADOR</Link></li>

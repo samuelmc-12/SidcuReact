@@ -1,49 +1,52 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { admins } from "../../data/admins.js";
+import { postApiData } from "../../services/api";
 import "./Login.css";
 
 const Login = () => {
-    const [usuario, setUsuario] = useState("");
+    const [correo, setCorreo] = useState("");
     const [contrasena, setContrasena] = useState("");
     const [error, setError] = useState("");
+    const [cargando, setCargando] = useState(false);
     const navigate = useNavigate();
 
-    const iniciarSesion = (event) => {
+    const iniciarSesion = async (event) => {
         event.preventDefault();
         setError("");
+        setCargando(true);
 
-        const administradorValido = admins.find(
-            (admin) =>
-                admin.username === usuario.trim() &&
-                admin.password === contrasena
-        );
+        try {
+            const usuario = await postApiData("/api/auth/login", {
+                correo: correo.trim(),
+                contrasena,
+            });
 
-        if (!administradorValido) {
-            setError("Usuario o contraseña incorrectos.");
-            return;
+            // El backend responde con id, nombre, correo y tipo.
+            localStorage.setItem("usuario", JSON.stringify(usuario));
+            navigate("/home");
+        } catch (errorSolicitud) {
+            setError(errorSolicitud.message || "No se pudo iniciar sesión.");
+        } finally {
+            setCargando(false);
         }
-
-        localStorage.setItem("usuario", administradorValido.username);
-        navigate("/home");
     };
 
     return (
         <main className="login-main">
             <div className="login-container">
                 <div id="tituloLogin">
-                    <h2>LOGIN</h2>
+                    <h2>INICIAR SESIÓN</h2>
                 </div>
 
                 <form id="formularioLogin" onSubmit={iniciarSesion}>
-                    <label htmlFor="usuarioLogin">USUARIO</label>
+                    <label htmlFor="correoLogin">CORREO ELECTRÓNICO</label>
                     <input
-                        id="usuarioLogin"
-                        type="text"
-                        placeholder="Ingresa tu usuario"
-                        autoComplete="username"
-                        value={usuario}
-                        onChange={(event) => setUsuario(event.target.value)}
+                        id="correoLogin"
+                        type="email"
+                        placeholder="Ingresa tu correo"
+                        autoComplete="email"
+                        value={correo}
+                        onChange={(event) => setCorreo(event.target.value)}
                         required
                     />
 
@@ -51,7 +54,7 @@ const Login = () => {
                     <input
                         id="contrasenaLogin"
                         type="password"
-                        placeholder="Ingresa la contraseña"
+                        placeholder="Ingresa tu contraseña"
                         autoComplete="current-password"
                         value={contrasena}
                         onChange={(event) => setContrasena(event.target.value)}
@@ -60,8 +63,8 @@ const Login = () => {
 
                     {error && <p role="alert">{error}</p>}
 
-                    <button id="botonLogin" type="submit">
-                        INGRESAR
+                    <button id="botonLogin" type="submit" disabled={cargando}>
+                        {cargando ? "INGRESANDO..." : "INGRESAR"}
                     </button>
 
                     <p>
