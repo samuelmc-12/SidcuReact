@@ -5,7 +5,7 @@ const preguntas = [
     { categoria: "Pensamiento lógico", texto: "¿Te gusta encontrar soluciones a situaciones complicadas?" },
 
     { categoria: "Comunicación", texto: "¿Se te facilita explicar tus ideas a otras personas?" },
-    { categoria: "Comunicación", texto: "¿Te sientes cómodo hablando frente a un grupo?" },
+    { categoria: "Comunicación", texto: "¿Te sientes en comodidad hablando frente a un grupo?" },
 
     { categoria: "Creatividad", texto: "¿Te resulta fácil proponer ideas diferentes?" },
     { categoria: "Creatividad", texto: "¿Disfrutas crear proyectos o diseñar cosas nuevas?" },

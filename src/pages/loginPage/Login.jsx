@@ -28,7 +28,7 @@ const Login = () => {
             if (errorSolicitud.message.includes("No fue posible conectar")) {
                 setError(errorSolicitud.message);
             } else {
-                setError("Correo o contraseña incorrectos.");
+                setError("Correo y/o contraseña incorrectos.");
             }
         } finally {
             setCargando(false);
@@ -65,7 +65,7 @@ const Login = () => {
                         required
                     />
 
-                    {error && <p role="alert">{error}</p>}
+                    {error && <p className="mensaje-error" role="alert">{error}</p>}
 
                     <button id="botonLogin" type="submit" disabled={cargando}>
                         {cargando ? "INGRESANDO..." : "INGRESAR"}

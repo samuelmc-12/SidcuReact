@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import "./TestCuestionario.css";
 
 const opciones = [
-    { texto: "Nada", valor: 1 },
-    { texto: "Poco", valor: 2 },
-    { texto: "Mucho", valor: 3 },
-    { texto: "Bastante", valor: 4 }
+    { texto: " Nada", valor: 1 },
+    { texto: " Poco", valor: 2 },
+    { texto: " Mucho", valor: 3 },
+    { texto: " Bastante", valor: 4 }
 ];
 
 const CuestionarioVocacional = ({ titulo, descripcion, preguntas, clave }) => {
