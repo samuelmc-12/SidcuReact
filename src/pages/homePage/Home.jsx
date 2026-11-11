@@ -1,84 +1,146 @@
-import './Home.css';
-import Footer from '../../components/layout/footer/footer';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./Home.css";
+import Actualizaciones from "./Actualizaciones.jsx";
 
+function leerUsuarioGuardado() {
+    const usuarioGuardado = localStorage.getItem("usuario");
 
-const Home = ()=> {
+    if (!usuarioGuardado) {
+        return null;
+    }
+
+    try {
+        const usuario = JSON.parse(usuarioGuardado);
+
+        // Compatibilidad con el valor de texto guardado por el login anterior.
+        if (typeof usuario === "string") {
+            return { nombre: usuario };
+        }
+
+        return usuario;
+    } catch {
+        return { nombre: usuarioGuardado };
+    }
+}
+
+const Home = () => {
+    const [usuario, setUsuario] = useState(leerUsuarioGuardado);
+    const [busqueda, setBusqueda] = useState("");
+    const navigate = useNavigate();
+
+    const cerrarSesion = () => {
+        localStorage.removeItem("usuario");
+        setUsuario(null);
+    };
+
+    const handleBuscar = () => {
+        if (!busqueda.trim()) {
+            return;
+        }
+
+        navigate(`/carreras?buscar=${encodeURIComponent(busqueda.trim())}`);
+    };
+
     return (
         <main>
-            <h1 id="tituloPrincipal">Encuentra la mejor opción para estudiar</h1>
-            <div class="botones">
-                <button>PreGrado</button>
-                <button>PostGrado</button>
-                <button>Técnico</button>
-            </div>
-            <div class="buscador">
-                <input type="text" placeholder="Buscar una carrera" />
-                <button class="buscar">Buscar</button>    
-            </div>
-            <div class="registro">
-                <button class="iniciarsesion">Iniciar sesión</button>
-                <button class="registrarse">Registrarse</button>
-            </div>
-            <section class="actualizaciones">
-                <div class="actualizacionestitulo">
-                    <h2>Actualizaciones</h2>
-                    <button class="vertodasboton">Todas las Actualizaciones ➜</button>
-                </div>
-                <div class="actualizacionesarrow">
-                    <div class="arrow arrow-left">‹</div>
-                    <div id="actualizacionescontenedor" class="actualizacionescontenedor"></div>
-                        <script src="./js/carrusel.js"></script>                                 
-                    <div class="arrow arrow-right">›</div>
-                    
-                </div>
-            </section>
-            <section class="info">
-                <div class="info-box">
-                <h2>¿Quiénes somos?</h2>
-                <p>
-                    En SIDCU (Simulador de Carreras Universitarias) somos un equipo comprometido con el futuro académico de los jóvenes.
-                    Nuestra misión es ayudar a los estudiantes de secundaria a descubrir su vocación mediante una experiencia interactiva,
-                    moderna y personalizada. <a href="./nosotros.html">Leer más.</a>
-                </p>
-                </div>
+            <h1 id="tituloPrincipal">
+                {usuario ? (
+                    <>
+                        ¡Bienvenid@, {usuario.nombre}! <br />
+                        Encuentra la mejor opción para <span>estudiar</span>
+                    </>
+                ) : (
+                    <>
+                        Encuentra la mejor opción para <span>estudiar</span>
+                    </>
+                )}
+            </h1>
 
-                <div class="divider"></div>
-                <div class="info-box">
-                <h2>¿Qué ofrecemos?</h2>
-                <p>
-                    Explorar diferentes carreras universitarias y conocer sus características principales.  
-                    Realizar tests de autoestima y habilidades, para descubrir qué programas se ajustan mejor a tus intereses.  
-                    Simular la experiencia universitaria. <a href="./nosotros.html">Leer más.</a>
-                </p>
-                </div>
-            
-                <div class="divider"></div>
-            
-                <div class="info-box">
-                <h2>Mejores Oportunidades</h2>
-                <p>
-                    Nuevas universidades aliadas que ofrecen programas innovadores.  
-                    Promociones académicas y becas exclusivas.  
-                    Noticias y actualizaciones sobre carreras emergentes y tendencias laborales. <a href="./nosotros.html">Leer más.</a>
-                </p>
-                </div>
-            </section>
-
-
-            <section class="suscripcion">
-            <h3>Sé el primero en enterarte</h3>
-            <p>
-                ¿Deseas que te informemos por correo sobre oportunidades de carreras o universidades que guardaste en la búsqueda?
+            <p id="subtituloPrincipal">
+                Explora diferentes carreras universitarias, conoce las
+                universidades y descubre las oportunidades que te acercan
+                a tu futuro profesional.
             </p>
-            
-            <div class="suscripcion-form">
-                <input type="email" placeholder="Correo Electrónico" />
-                <button class="suscribirse">Suscribirse</button>
+
+            <div className="buscador">
+                <input
+                    type="text"
+                    placeholder="¿Qué carrera te gustaría estudiar?"
+                    value={busqueda}
+                    onChange={(event) => setBusqueda(event.target.value)}
+                    onKeyDown={(event) => {
+                        if (event.key === "Enter") handleBuscar();
+                    }}
+                />
+
+                <button className="buscar" onClick={handleBuscar}>
+                    Buscar
+                </button>
             </div>
+
+            <div className="registro">
+                {usuario ? (
+                    <button
+                        className="registrarse"
+                        type="button"
+                        onClick={cerrarSesion}
+                    >
+                        Cerrar sesión
+                    </button>
+                ) : (
+                    <>
+                        <Link to="/login" className="iniciarsesion">
+                            Iniciar sesión
+                        </Link>
+                        <Link to="/registro" className="registrarse">
+                            Registrarse
+                        </Link>
+                    </>
+                )}
+            </div>
+
+            <Actualizaciones />
+
+            <section className="suscripcion">
+                <span className="suscripcion-etiqueta">
+                    DESCUBRE TU POTENCIAL
+                </span>
+
+                <h3>
+                    Tu futuro profesional comienza con una
+                    <span> decisión.</span>
+                </h3>
+                <h4>
+                    ¿Ya sabes qué camino quieres seguir?
+                </h4>
+                <p>
+                    Descubre tus intereses, reconoce tus habilidades y
+                    explora las carreras que podrían conectar con lo que
+                    te apasiona. En SIDCU te acompañamos a dar el siguiente
+                    paso hacia tu futuro.
+                </p>
+                <div className="suscripcion-beneficios">
+                    <span>Conoce tus intereses</span>
+                    <span>Explora tus habilidades</span>
+                    <span>Encuentra tu camino</span>
+                </div>
+                <div className="cta-vocacional-botones">
+                    <Link to="/test" className="cta-vocacional-principal">
+                        Hacer el test vocacional
+                    </Link>
+
+                    <Link to="/carreras" className="cta-vocacional-secundario">
+                        Explorar carreras
+                    </Link>
+                </div>
+
+                <small className="suscripcion-frase">
+                    Tu futuro tiene muchas posibilidades. ¡Comienza a descubrirlas!
+                </small>
             </section>
         </main>
     );
 };
 
 export default Home;
-

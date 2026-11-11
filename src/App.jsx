@@ -1,17 +1,19 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./components/layout/navbar/Navbar";
-import "./index.css"
-import Footer from "./components/layout/footer/footer";
-
+import Footer from "./components/layout/footer/Footer";
+import "./index.css";
 
 function App() {
+  const { pathname } = useLocation();
+  const ocultarLayout = ["/login", "/registro"].includes(pathname);
+
   return (
     <div>
-      <Navbar />
+      {!ocultarLayout && <Navbar />}
       <Outlet />
-      <Footer />
+      {!ocultarLayout && <Footer />}
     </div>
   );
 }
 
-export default App
+export default App;

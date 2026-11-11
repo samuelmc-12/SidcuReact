@@ -1,283 +1,208 @@
-h1 {
-    font-size: 48px;
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+#tituloPrincipal {
+    font-size: 42px;
+    font-weight: 800;
+    color: #fdfdfd;
     text-align: center;
+    line-height: 1.3;
+    max-width: 900px;
+    margin: 45px auto 25px;
+    letter-spacing: -1px;
 }
+
+#tituloPrincipal span {
+    color: #bd80ff;
+}
+
+
+#subtituloPrincipal {
+    font-size: 16px;
+    font-weight: 400;
+    color: #E4D9F1;
+    text-align: center;
+    line-height: 1.8;
+    max-width: 750px;
+    margin: 0 auto 35px;
+    padding: 0 20px;
+}
+
 button {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    border: 2px solid #13002e;
-    padding: 3px 15px;
-    border-radius: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 25px;
     cursor: pointer;
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
-  }
-button:hover {
-    background-color: #dfbaff;
+    transition: all 0.3s ease;
 }
+
 .botones {
     display: flex;
-    gap: 20px;
+    gap: 18px;
     justify-content: center;
-    color: #13002e;
-}
-input {
-    text-align: center;
-    padding: 7px 12px;
-    border-radius: 15px;
-    border: 2px solid #13002e;
-    font-size: 18px;
-    width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.buscador {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-.buscar {
-    margin-left: 37%;
-    color: #13002e;
-    
-}
-.buscar:hover {
-  background-color: #dfbaff;
-}
-.registro {
-    display: flex;
-    gap: 20px;
-    justify-content: center; 
-}
-.iniciarsesion {
-    padding: 6px 16px;
-    font-size: 20px;
-    border: 2px solid #13002e;
-    color: #13002e;
-}
-.registrarse {
-    padding: 6px 16px;
-    font-size: 20px;
-    background-color: #13002e;
-    color: white;
-    border: 2px solid white;
-}
-.registrarse:hover {
-    background-color: #2e0057;
-}
-.actualizaciones {
-    padding: 40px 60px;
-    text-align: center;
-    color: white;
-}
-.actualizacionestitulo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-.actualizaciones h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    font-weight: 700;
-    text-align: left;
-    margin-left: 340px;    
-
-}
-.vertodasboton {
-    background-color: #13002e;
-    border: 1px solid white;
-    color: white;
-    padding: 6px 14px;
-    margin-right: 340px;
-    border-radius: 15px;
-    font-size: 14px;
-}
-.vertodasboton:hover {
-    background-color: #2e0057;
-}
-
-.actualizacionescontenedor {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
     flex-wrap: wrap;
 }
 
-.actualizacion {
-    background-color: #fff;
-    color: #000;
-    border-radius: 10px;
-    width: 250px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.botones button {
+    background-color: #7D35C7;
+    color: white;
+    box-shadow: 0 4px 12px rgba(19, 0, 46, 0.2);
 }
 
-.actualizacion img {
+.botones button:hover {
+    background-color: #bd80ff;
+    color: #13002e;
+    transform: translateY(-3px);
+}
+
+.buscador {
+    margin: 40px auto 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
     width: 100%;
-    height: 160px;
-    object-fit: cover;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
-.actualizacion p {
+.buscador input {
+    width: 450px;
+    max-width: 65%;
+    padding: 14px 22px;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    background-color: #ffffff;
+    color: #29213A;
+    font-size: 15px;
+    text-align: left;
+    outline: none;
+    box-shadow: 0 4px 15px rgba(19, 0, 46, 0.15);
+    transition: all 0.3s ease;
+}
+
+.buscador input::placeholder {
+    color: #999;
+}
+
+.buscador input:focus {
+    border-color: #bd80ff;
+    box-shadow: 0 0 0 4px rgba(189, 128, 255, 0.2);
+}
+
+.buscar {
+    padding: 14px 30px;
+    background-color: #7D35C7;
+    color: white;
+    box-shadow: 0 4px 12px rgba(19, 0, 46, 0.2);
+}
+
+.buscar:hover {
+    background-color: #bd80ff;
+    color: #13002e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(19, 0, 46, 0.25);
+}
+
+
+.registro {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.iniciarsesion {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: white;
+    color: #7D35C7;
+    border-radius: 30px;
+    font-size: 14px;
     font-weight: 600;
-    padding: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-.actualizacion:hover {
-    transform: translateY(-5px);
-  box-shadow: 0 4px 24px 3px #d3c4e6;
+.iniciarsesion:hover {
+    background-color: #dfbaff;
+    color: #13002e;
+    transform: translateY(-2px);
 }
 
-.actualizacionesarrow {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 40px;
+.registrarse {
+    display: inline-block;
+    padding: 10px 22px;
+    background-color: #7D35C7;
+    color: white;
+    border: 2px solid #7D35C7;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-
-.actualizacionescontenedor {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+.registrarse:hover {
+    background-color: #bd80ff;
+    color: #13002e;
+    border-color: #bd80ff;
+    transform: translateY(-2px);
 }
 
-
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 50px;
-  text-align: center;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.2);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: default; 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.arrow-left {
-  left: 18%;
-}
-
-.arrow-right {
-  right: 18%;
-}
-
-
-.arrow:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-}
-.info {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 40px;
-  padding: 60px 80px;
-  color: white;
-  text-align: left;
-  background: transparent;
-}
-
-.info-box {
-  flex: 1;
-  max-width: 300px;
-}
-
-.info-box h2 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.info-box p {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.info-box a {
-  color: white;
-  font-weight: 600;
-  text-decoration: underline;
-}
-
-.divider {
-  width: 2px;
-  background: rgba(255, 255, 255, 0.7);
-  height: 200px;
-  align-self: center;
-}
-
-/* ===== SECCIÓN SUSCRIPCIÓN ===== */
 .suscripcion {
-  text-align: center;
-  color: white;
-  padding: 50px 20px 70px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    color: white;
+    padding: 50px 20px 70px;
 }
 
 .suscripcion h3 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
 }
 
 .suscripcion p {
-  max-width: 700px;
-  margin: 0 auto 25px;
-  font-size: 16px;
-  line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto 25px;
+    font-size: 16px;
+    line-height: 1.5;
 }
+
 
 .suscripcion-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.suscripcion-form input {
-  padding: 12px 20px;
-  border-radius: 25px;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  width: 300px;
-  color: #000;
-  text-align: center;
+
+button:active,
+.iniciarsesion:active,
+.registrarse:active {
+    transform: scale(0.97);
 }
 
-.suscribirse {
-  background-color: #13002e;
-  color: white;
-  border: 2px solid white;
-  padding: 10px 25px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.suscribirse:hover {
-  background-color: #2e0057;
-}
 
 @media (max-width: 768px) {
+
+    #tituloPrincipal {
+        font-size: 30px;
+        padding: 0 20px;
+    }
+
+    #subtituloPrincipal {
+        font-size: 14px;
+        line-height: 1.6;
+    }
 
     .navbar {
         flex-direction: column;
@@ -292,4 +217,238 @@ input {
         flex-direction: column;
     }
 
+    .buscador {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .buscador input {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .buscar {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .registro {
+        gap: 10px;
+    }
+
+    .suscripcion-form {
+        flex-direction: column;
+    }
+
+    .suscripcion-form input {
+        width: 100%;
+    }
+
+    .suscribirse {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+.cta-vocacional-botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 24px;
+}
+
+.cta-vocacional-botones a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 230px;
+    min-height: 48px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.cta-vocacional-principal {
+    background-color: white;
+    color: #7D35C7;
+    border: 2px solid white;
+}
+
+.cta-vocacional-secundario {
+    background-color: #7D35C7;
+    color: white;
+    border: 2px solid #7D35C7;
+}
+
+.cta-vocacional-principal:hover {
+    background-color: #dfbaff;
+    color: #13002e;
+    border-color: #dfbaff;
+    transform: translateY(-2px);
+}
+
+.cta-vocacional-secundario:hover {
+    background-color: #bd80ff;
+    color: #13002e;
+    border-color: #bd80ff;
+    transform: translateY(-2px);
+}
+
+.cta-vocacional-botones a:active {
+    transform: scale(0.97);
+}
+
+@media (max-width: 480px) {
+    .cta-vocacional-botones {
+        flex-direction: column;
+    }
+
+    .cta-vocacional-botones a {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+.suscripcion {
+    max-width: 950px;
+    margin: 0px auto 0px;
+    padding: 55px 35px;
+    text-align: center;
+    color: white;
+}
+
+.suscripcion-etiqueta {
+    display: inline-block;
+    padding: 8px 18px;
+    margin-bottom: 22px;
+
+    color: #dfbaff;
+    background: rgba(189, 128, 255, 0.12);
+
+    border: 1px solid rgba(189, 128, 255, 0.3);
+    border-radius: 30px;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.suscripcion h3 {
+    max-width: 750px;
+    margin: 0 auto 18px;
+
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.35;
+    color: #ffffff;
+}
+
+.suscripcion h3 span {
+    color: #bd80ff;
+}
+
+.suscripcion h4 {
+    margin: 0 auto 18px;
+
+    font-size: 19px;
+    font-weight: 600;
+    color: #dfbaff;
+}
+
+.suscripcion p {
+    max-width: 700px;
+    margin: 0 auto 28px;
+
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.9;
+    color: #E4D9F1;
+}
+
+
+.suscripcion-beneficios {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-bottom: 30px;
+}
+
+.suscripcion-beneficios span {
+    padding: 9px 15px;
+
+    color: #ead9ff;
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(189, 128, 255, 0.2);
+    border-radius: 25px;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+.suscripcion-frase {
+    display: block;
+    margin-top: 25px;
+
+    color: #cbb6e2;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+
+    .suscripcion {
+        margin: 45px 18px;
+        padding: 40px 20px;
+    }
+
+    .suscripcion h3 {
+        font-size: 26px;
+    }
+
+    .suscripcion h4 {
+        font-size: 17px;
+    }
+
+    .suscripcion p {
+        font-size: 14px;
+    }
+
+    .suscripcion-beneficios {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .suscripcion h3 {
+        font-size: 23px;
+    }
+
+    .suscripcion-etiqueta {
+        font-size: 10px;
+    }
+
+    .suscripcion-beneficios {
+        flex-direction: column;
+    }
+
+    .suscripcion-beneficios span {
+        width: fit-content;
+    }
 }

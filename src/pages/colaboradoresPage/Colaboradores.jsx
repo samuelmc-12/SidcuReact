@@ -1,50 +1,103 @@
-import "./Colaboradores.css"
-import Footer from '../../components/layout/footer/footer';
+import { useEffect, useState } from "react";
+import "./Colaboradores.css";
+import { obtenerUniversidades } from "../../services/universidadService";
 
-const Colaboradores = ()=> {
+const imagenesUniversidad = {
+  "Universidad de los Andes": "/img/andes.jpg",
+  "Pontificia Universidad Javeriana": "/img/javeriana.jpg",
+  "Universidad Nacional de Colombia - Sede Medellín": "/img/nacional.jpg",
+  "Universidad EAFIT": "/img/eafit.jpg",
+  "Universidad del Valle": "/img/uvalle.jpg",
+  "CESDE": "/img/cesde.jpg",
+  "Universidad de Antioquia": "/img/unidantioquia.jpg",
+  "Instituto Tecnológico Metropolitano": "/img/itm.jpg",
+};
+
+const obtenerLogoUniversidad = (nombre) => {
+  const clave = String(nombre ?? "").trim();
+  return imagenesUniversidad[clave] ?? "/img/unilogo.jpg";
+};
+
+const Colaboradores = () => {
+  const [universidades, setUniversidades] = useState([]);
+  const [cargando, setCargando] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const cargarUniversidades = async () => {
+      try {
+        const datos = await obtenerUniversidades();
+        setUniversidades(datos);
+      } catch (err) {
+        console.error(err);
+        setError("No se pudieron cargar las universidades.");
+      } finally {
+        setCargando(false);
+      }
+    };
+
+    cargarUniversidades();
+  }, []);
+
+  if (cargando) {
     return (
-
-        <main>
-            <section class="colaboradores-intro">
-                <h1>Universidades Colaboradoras de SIDCU</h1>
-                <p>
-                    Nos enorgullece contar con el apoyo y la colaboración de importantes instituciones educativas de Colombia. Juntos construimos mejores oportunidades académicas para los jóvenes.
-                </p>
-            </section>
-            <section class="universidades-lista">
-                <div class="universidad">
-                    <img src="./img/andes.jpg" alt="Universidad de los Andes" />
-                    <h2>Universidad de los Andes</h2>
-                    <p>Bogotá, D.C.</p>
-                    <a href="https://uniandes.edu.co/" target="_blank" class="ver-mas">Ver más</a>
-                </div>
-                <div class="universidad">
-                    <img src="./img/javeriana.jpg" alt="Pontificia Universidad Javeriana"/>
-                    <h2>Pontificia Universidad Javeriana</h2>
-                    <p>Bogotá, D.C.</p>
-                    <a href="https://www.javeriana.edu.co/" target="_blank" class="ver-mas">Ver más</a>
-                </div>
-                <div class="universidad">
-                    <img src="./img/nacional.jpg" alt="Universidad Nacional de Colombia"/>
-                    <h2>Universidad Nacional de Colombia</h2>
-                    <p>Bogotá y sedes regionales</p>
-                    <a href="https://unal.edu.co/" target="_blank" class="ver-mas">Ver más</a>
-                </div>
-                <div class="universidad">
-                    <img src="./img/eafit.jpg" alt="Universidad EAFIT"/>
-                    <h2>Universidad EAFIT</h2>
-                    <p>Medellín, Antioquia</p>
-                    <a href="https://www.eafit.edu.co/" target="_blank" class="ver-mas">Ver más</a>
-                </div>
-                <div class="universidad">
-                    <img src="./img/uvalle.jpg" alt="Universidad del Valle"/>
-                    <h2>Universidad del Valle</h2>
-                    <p>Cali, Valle del Cauca</p>
-                    <a href="https://www.univalle.edu.co/" target="_blank" class="ver-mas">Ver más</a>
-                </div>
-            </section>
-        </main>
+      <main>
+        <p>Cargando universidades...</p>
+      </main>
     );
-}
+  }
+
+  if (error) {
+    return (
+      <main>
+        <p>{error}</p>
+      </main>
+    );
+  }
+
+  return (
+    <main>
+      <section className="colaboradores-intro">
+        <h1>Universidades Colaboradoras de SIDCU</h1>
+        <p>
+          Nos enorgullece contar con el apoyo y la colaboración de importantes
+          instituciones educativas de Colombia. Juntos construimos mejores
+          oportunidades académicas para los jóvenes.
+        </p>
+      </section>
+
+      <section className="universidades-lista">
+        {universidades.map((universidad) => (
+          <div className="universidad" key={universidad.id}>
+            <img
+              src={obtenerLogoUniversidad(universidad.nombre)}
+              alt={`Logo de ${universidad.nombre}`}
+            />
+
+            <h2>{universidad.nombre}</h2>
+            <p>{universidad.ciudad}</p>
+
+            {universidad.tipo && <p>{universidad.tipo}</p>}
+
+            {universidad.ubicacion?.direccion && (
+              <p>{universidad.ubicacion.direccion}</p>
+            )}
+
+            <a
+              href={`https://www.google.com/search?q=${encodeURIComponent(
+                universidad.nombre
+              )}`}
+              target="_blank"
+              rel="noreferrer"
+              className="ver-mas"
+            >
+              Ver más
+            </a>
+          </div>
+        ))}
+      </section>
+    </main>
+  );
+};
 
 export default Colaboradores;
