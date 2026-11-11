@@ -2,6 +2,22 @@ import { useEffect, useState } from "react";
 import "./Colaboradores.css";
 import { obtenerUniversidades } from "../../services/universidadService";
 
+const imagenesUniversidad = {
+  "Universidad de los Andes": "/img/andes.jpg",
+  "Pontificia Universidad Javeriana": "/img/javeriana.jpg",
+  "Universidad Nacional de Colombia - Sede Medellín": "/img/nacional.jpg",
+  "Universidad EAFIT": "/img/eafit.jpg",
+  "Universidad del Valle": "/img/uvalle.jpg",
+  "CESDE": "/img/cesde.jpg",
+  "Universidad de Antioquia": "/img/unidantioquia.jpg",
+  "Instituto Tecnológico Metropolitano": "/img/itm.jpg",
+};
+
+const obtenerLogoUniversidad = (nombre) => {
+  const clave = String(nombre ?? "").trim();
+  return imagenesUniversidad[clave] ?? "/img/unilogo.jpg";
+};
+
 const Colaboradores = () => {
   const [universidades, setUniversidades] = useState([]);
   const [cargando, setCargando] = useState(true);
@@ -53,8 +69,12 @@ const Colaboradores = () => {
       <section className="universidades-lista">
         {universidades.map((universidad) => (
           <div className="universidad" key={universidad.id}>
-            <h2>{universidad.nombre}</h2>
+            <img
+              src={obtenerLogoUniversidad(universidad.nombre)}
+              alt={`Logo de ${universidad.nombre}`}
+            />
 
+            <h2>{universidad.nombre}</h2>
             <p>{universidad.ciudad}</p>
 
             {universidad.tipo && <p>{universidad.tipo}</p>}

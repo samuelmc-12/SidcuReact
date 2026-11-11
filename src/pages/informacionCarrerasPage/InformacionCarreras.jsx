@@ -1,5 +1,5 @@
 import "./InformacionCarreras.css";
-import { carreras } from "./carrerasData";
+import { carreras } from "./CarrerasData";
 import { Link } from "react-router-dom";
 
 const InformacionCarrera = () => {
