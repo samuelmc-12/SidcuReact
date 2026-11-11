@@ -25,7 +25,11 @@ const Login = () => {
             localStorage.setItem("usuario", JSON.stringify(usuario));
             navigate("/home");
         } catch (errorSolicitud) {
-            setError(errorSolicitud.message || "No se pudo iniciar sesión.");
+            if (errorSolicitud.message.includes("No fue posible conectar")) {
+                setError(errorSolicitud.message);
+            } else {
+                setError("Correo o contraseña incorrectos.");
+            }
         } finally {
             setCargando(false);
         }

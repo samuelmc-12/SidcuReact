@@ -47,7 +47,7 @@ const Home = () => {
             <h1 id="tituloPrincipal">
                 {usuario ? (
                     <>
-                        ¡Bienvenido, {usuario.nombre}! <br />
+                        ¡Bienvenid@, {usuario.nombre}! <br />
                         Encuentra la mejor opción para <span>estudiar</span>
                     </>
                 ) : (

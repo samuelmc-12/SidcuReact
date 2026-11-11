@@ -22,7 +22,7 @@ const tests = [
         titulo: "Personalidad y Estilo de Trabajo",
         descripcion:
             "Descubre cómo prefieres trabajar, colaborar y desenvolverte en diferentes ambientes.",
-        imagen: "/img/ia.jpg",
+        imagen: "/img/personalidad.jpg",
         ruta: "/personalidad",
         preguntas: "10 preguntas",
     },
@@ -30,7 +30,7 @@ const tests = [
         titulo: "Motivaciones y Expectativas",
         descripcion:
             "Identifica qué es lo que más valoras y esperas de tu futuro profesional.",
-        imagen: "/img/educacion.jpg",
+        imagen: "/img/motivacion.jpg",
         ruta: "/motivaciones",
         preguntas: "10 preguntas",
     },
@@ -38,7 +38,7 @@ const tests = [
         titulo: "Áreas Académicas",
         descripcion:
             "Reconoce las materias y campos de conocimiento que más te interesan.",
-        imagen: "/img/cienciasb.jpg",
+        imagen: "/img/academica.jpg",
         ruta: "/academico",
         preguntas: "10 preguntas",
     },
