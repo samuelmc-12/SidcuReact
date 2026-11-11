@@ -2,7 +2,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./components/layout/navbar/Navbar";
 import Footer from "./components/layout/footer/Footer";
-import ScrollToTop from "./components/layout/ScrollToTop";
+import ScrollToTop from "./components/ScrollToTop";
 import "./index.css";
 
 function App() {
