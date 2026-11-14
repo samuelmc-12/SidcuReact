@@ -114,7 +114,7 @@ Actualmente se trabaja en la integración del frontend con el backend, la conexi
 
 ## Autores
 
-Alejandra Meza
+Alejandra Meza <br>
 Samuel Muñoz
 
 ---
