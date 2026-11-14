@@ -49,15 +49,15 @@ function Footer() {
 
                         <li>
                             <span>WhatsApp 2:</span>
-                            <a href="https://wa.me/57XXXXXXXXXX" target="_blank" rel="noreferrer">
-                                +57 XXX XXX XXXX
+                            <a href="https://wa.me/573332511327" target="_blank" rel="noreferrer">
+                                +57 333 251 1327
                             </a>
                         </li>
 
                         <li>
                             <span>Correo:</span>
-                            <a href="mailto:correo@ejemplo.com">
-                                correo@ejemplo.com
+                            <a href="sidcu@gmail.com">
+                                sidcu@gmail.com
                             </a>
                         </li>
 
@@ -66,7 +66,7 @@ function Footer() {
                             <a href="https://www.instagram.com/tu_cuenta"
                                 target="_blank"
                                 rel="noreferrer">
-                                @tu_cuenta
+                                @sidcu
                             </a>
                         </li>
 

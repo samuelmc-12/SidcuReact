@@ -15,24 +15,28 @@ const Comparador = () => {
     const [carreraC, setCarreraC] = useState("");
 
     const [mostrarResultado, setMostrarResultado] = useState(false);
+    const [mensaje, setMensaje] = useState("");
 
     const comparar = (e) => {
         e.preventDefault();
 
         if (!carreraA || !carreraB) {
-            alert("Selecciona al menos dos carreras para comparar.");
+            setMensaje("Selecciona al menos dos carreras para comparar.");
+            setMostrarResultado(false);
             return;
         }
 
         if (
             carreraA === carreraB ||
-            carreraA === carreraC ||
+            (carreraA === carreraC && carreraC !== "") ||
             (carreraB === carreraC && carreraC !== "")
         ) {
-            alert("Selecciona carreras diferentes.");
+            setMensaje("Selecciona carreras diferentes.");
+            setMostrarResultado(false);
             return;
         }
 
+        setMensaje("");
         setMostrarResultado(true);
     };
 
@@ -41,6 +45,7 @@ const Comparador = () => {
         setCarreraB("");
         setCarreraC("");
         setMostrarResultado(false);
+        setMensaje("");
     };
 
     const carrerasSeleccionadas = carreras.filter((carrera) =>
@@ -78,6 +83,7 @@ const Comparador = () => {
                                 onChange={(e) => {
                                     setCarreraA(e.target.value);
                                     setMostrarResultado(false);
+                                    setMensaje("");
                                 }}
                             >
                                 <option value="">Seleccionar carrera</option>
@@ -102,6 +108,7 @@ const Comparador = () => {
                                 onChange={(e) => {
                                     setCarreraB(e.target.value);
                                     setMostrarResultado(false);
+                                    setMensaje("");
                                 }}
                             >
                                 <option value="">Seleccionar carrera</option>
@@ -128,6 +135,7 @@ const Comparador = () => {
                                 onChange={(e) => {
                                     setCarreraC(e.target.value);
                                     setMostrarResultado(false);
+                                    setMensaje("");
                                 }}
                             >
                                 <option value="">Seleccionar carrera</option>
@@ -158,6 +166,20 @@ const Comparador = () => {
                         >
                             Restablecer
                         </button>
+
+                        {mensaje && (
+                            <p
+                                role="alert"
+                                style={{
+                                    color: "#c0392b",
+                                    fontSize: "14px",
+                                    margin: "auto 0",
+                                    fontWeight: "600"
+                                }}
+                            >
+                                {mensaje}
+                            </p>
+                        )}
 
                     </div>
 

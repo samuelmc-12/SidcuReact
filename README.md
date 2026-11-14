@@ -114,7 +114,8 @@ Actualmente se trabaja en la integración del frontend con el backend, la conexi
 
 ## Autores
 
-Proyecto desarrollado como iniciativa académica por estudiantes del área de desarrollo de software.
+Alejandra Meza
+Samuel Muñoz
 
 ---
 
